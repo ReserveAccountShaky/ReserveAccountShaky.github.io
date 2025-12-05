@@ -92,10 +92,7 @@ void sortuj() {
 
             int cmpNazw = strcmp(baza[j].nazwisko, baza[j + 1].nazwisko);
 
-            if (cmpNazw > 0 ||
-               (cmpNazw == 0 &&
-                strcmp(baza[j].imie, baza[j + 1].imie) > 0)) {
-
+            if (cmpNazw > 0 ||(cmpNazw == 0 && strcmp(baza[j].imie, baza[j + 1].imie) > 0)) {
                 tmp = baza[j];
                 baza[j] = baza[j + 1];
                 baza[j + 1] = tmp;
@@ -122,3 +119,4 @@ int main() {
         else if (opcja == 0) return 0;
     }
 }
+
