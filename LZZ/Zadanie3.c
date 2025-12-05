@@ -10,23 +10,27 @@ struct Osoba {
 struct Osoba baza[10];
 int liczba = 0;
 
-void dodaj() {
-    if (liczba == 10) {
-        printf("Baza pelna!\n");
-        return;
+void dodaj() {   
+    if (liczba == 10) {        
+        printf("Baza pelna!\n");     
+        return;                       
     }
-    printf("Imie: ");
-    scanf("%49s", baza[liczba].imie);
 
-    printf("Nazwisko: ");
+    printf("Imie: ");                  
+    scanf("%49s", baza[liczba].imie); 
+
+    printf("Nazwisko: ");              
     scanf("%49s", baza[liczba].nazwisko);
 
-    printf("Telefon: ");
+    printf("Telefon: ");               
     scanf("%19s", baza[liczba].telefon);
 
-    liczba++;
-}
+    liczba++;                          
 
+    printf("Osoba dodana!\n");         
+    printf("Aktualny lista osob:\n");  
+    pokaz();                           
+}
 void pokaz() {
     for (int i = 0; i < liczba; i++) {
         printf("%d. %s %s %s\n",
@@ -43,7 +47,10 @@ void modyfikuj() {
     scanf("%d", &nr);
     nr--;
 
-    if (nr < 0 || nr >= liczba) return;
+    if (nr < 0 || nr >= liczba){
+        printf("Nie znaleziono!\n");
+        return;
+}
 
     printf("Nowe imie: ");
     scanf("%49s", baza[nr].imie);
@@ -55,19 +62,26 @@ void modyfikuj() {
     scanf("%19s", baza[nr].telefon);
 }
 
-void skasuj() {
-    int nr;
-    printf("Numer: ");
+void skasuj() {                       
+    int nr;                            
+    printf("Numer osoby do usuniecia: "); 
     scanf("%d", &nr);
-    nr--;
+    nr--;                              
 
-    if (nr < 0 || nr >= liczba) return;
+    if (nr < 0 || nr >= liczba) {    
+        printf("Nie znaleziono!\n");  
+        return;                         
+    }
 
-    for (int i = nr; i < liczba - 1; i++) {
+    for (int i = nr; i < liczba - 1; i++) { 
         baza[i] = baza[i + 1];
     }
 
-    liczba--;
+    liczba--;                           
+
+    printf("Osoba usunieta!\n");        
+    printf("Aktualny lista osob:\n");  
+    pokaz();                            
 }
 
 void sortuj() {
